@@ -1,0 +1,14 @@
+﻿@model string
+
+@if (Model == "Draw")
+{
+    <h2>GRATZ!!! DRAW!!!</h2>
+}
+else
+{
+    <h2>GRATZ!!! @Model - you are the Winner!!!</h2>
+}
+@Html.AjaxActionLink("Continue To Play", "Continue",
+      new { name = Model },
+    new AjaxOptions { UpdateTargetId = "game" }, new { @class = "btn btn-primary btn-lg" })
+@Html.ActionLink("New Game", "Index", null, new { @class = "btn btn-primary btn-lg" })

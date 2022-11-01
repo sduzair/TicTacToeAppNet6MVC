@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Tic Tac Toe";
+}
+<br />
+<div id="game" class="container">
+    @using (Html.AjaxBeginForm("Index", new AjaxOptions { UpdateTargetId = "game" }))
+    {
+        <div class="form">
+            <div class="row mb-2">
+                <div class="col">
+                    <label>Enter Player 1 Name</label>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" name="firstPlayerName" />
+                </div>
+                <div class="col-sm-1 btn btn-danger disabled"> X</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <label>Enter Player 2 Name</label>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" name="secondPlayerName" />
+                </div>
+                <div class="col-sm-1 btn btn-warning disabled"> O</div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <button class="btn btn-primary" type="submit">Start</button>
+            </div>
+        </div>
+    }
+</div>

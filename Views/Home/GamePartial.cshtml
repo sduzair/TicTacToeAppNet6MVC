@@ -1,0 +1,117 @@
+﻿@model TicTacToeApp.Models.GameViewModel
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 m-auto">
+            <table class="table table-bordered text-white bg-ingo">
+                <tr>
+                    <td class="bg-primary">
+                        Player Name
+                    </td>
+                    <td class="bg-primary">
+                        Symbol
+                    </td>
+                    <td class="bg-primary">
+                        Number of Wins
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="text-black">@Html.DisplayFor(model => Model.Player1.Name)</b>
+                    </td>
+                    <td>
+                        <b class="text-danger disabled">@Html.DisplayFor(model => Model.Player1.Symbol)</b>
+                    </td>
+                    <td>
+                        <b class="text-success">@Html.DisplayFor(model => Model.Player1.NumOfWins)</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b class="text-black">@Html.DisplayFor(model => Model.Player2.Name)</b>
+                    </td>
+                    <td>
+                        <b class="text-warning disabled">@Html.DisplayFor(model => Model.Player2.Symbol)</b>
+                    </td>
+                    <td>
+                        <b class="text-success">@Html.DisplayFor(model => Model.Player2.NumOfWins)</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m-auto"><h3 class="display-5"><b>@ViewBag.Message</b></h3></div>
+    </div>
+
+    <table class="table table-bordered col-md-offset-4 col-md-4 my-table">
+        <tr>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[0].ToString(), "Game",
+               new { id = 0, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[1].ToString(), "Game",
+               new { id = 1, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[2].ToString(), "Game",
+               new { id = 2, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+        </tr>
+        <tr>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[3].ToString(), "Game",
+               new { id = 3, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[4].ToString(), "Game",
+               new { id = 4, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[5].ToString(), "Game",
+               new { id = 5, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+        </tr>
+        <tr>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[6].ToString(), "Game",
+               new { id = 6, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[7].ToString(), "Game",
+               new { id = 7, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+            <td class="my-td btn-primary">
+                @Html.AjaxActionLink(Model.Board[8].ToString(), "Game",
+               new { id = 8, firstPlayerName = Model.Player1.Name, secondPlayerName = Model.Player2.Name },
+               new AjaxOptions { UpdateTargetId = "game" },
+               new { @class = "btn-primary btn-lg text-size-lg btn-block text-center", @style = "text-decoration:none;" })
+            </td>
+        </tr>
+    </table>
+
+    <div class="d-flex justify-content-end">
+        <div>
+        @Html.AjaxActionLink("Reset", "Reset", null , new AjaxOptions { UpdateTargetId = "game"},
+        new { @class = "btn-danger btn text-size-lg btn-block text-center col-md-12", @style = "text-decoration:none;" })
+        </div>
+    </div>
+
+<div>
+
