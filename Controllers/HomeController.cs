@@ -44,7 +44,7 @@ namespace TicTacToeApp.Controllers
             // Check for winner
             if (game.IsWinner(game.Player1.Symbol[0]))
             {
-                ViewBag.Message = $"Winner is - {game.Player1.Name}!!!";
+                ViewBag.Message = $"Winner is - {game.Player1.Name}!";
                 ++game.Player1.NumOfWins;
                 HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
 
@@ -52,7 +52,7 @@ namespace TicTacToeApp.Controllers
             }
             else if (game.IsWinner(game.Player2.Symbol[0]))
             {
-                ViewBag.Message = $"Winner is - {game.Player2.Name}!!!";
+                ViewBag.Message = $"Winner is - {game.Player2.Name}!";
                 ++game.Player2.NumOfWins;
                 HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
 
@@ -61,7 +61,7 @@ namespace TicTacToeApp.Controllers
             // Check for Draw
             if (game.Attempts == 9)
             {
-                ViewBag.Message = $"{game.Player1.Name} vs {game.Player2.Name} = DRAW!!!";
+                ViewBag.Message = $"{game.Player1.Name} vs {game.Player2.Name} = DRAW!";
                 HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
 
                 return PartialView("ContinuePartial", "Draw");
@@ -69,11 +69,11 @@ namespace TicTacToeApp.Controllers
             // Check for turn
             if (game.Attempts % 2 == 0)
             {
-                ViewBag.Message = $"It's your turn {game.Player1.Name}!!!";
+                ViewBag.Message = $"Your turn {game.Player1.Name}!";
             }
             else
             {
-                ViewBag.Message = $"It's your turn {game.Player2.Name}!!!";
+                ViewBag.Message = $"Your turn {game.Player2.Name}!";
             }
             HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
 
@@ -85,7 +85,7 @@ namespace TicTacToeApp.Controllers
             GameViewModel game = JsonConvert.DeserializeObject<GameViewModel>(HttpContext.Session.GetString("Game"));
             game.Reset();
             HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
-            ViewBag.Message = $"It's your turn {game.Player1.Name}!!!";
+            ViewBag.Message = $"Your turn {game.Player1.Name}!";
 
             return PartialView("GamePartial", game);
         }
@@ -96,7 +96,7 @@ namespace TicTacToeApp.Controllers
             game.Board = "_________";
             game.Attempts = 0;
             HttpContext.Session.SetString("Game", (string)JsonConvert.SerializeObject(game));
-            ViewBag.Message = $"It's your turn {game.Player1.Name}!!!";
+            ViewBag.Message = $"Your turn {game.Player1.Name}!";
 
             return PartialView("GamePartial", game);
         }
